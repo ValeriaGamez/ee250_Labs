@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PIR Sensor Data</title>
+        <style>
+            body {
+                background-color: #92A8D1;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                text-align: center;
+            }
+
+            button{
+                color: black;
+                padding: 5px 15px;
+                margin: 10px;
+                border-radius: 8px;
+                border: transparent;
+                font-size: 20px;
+                
+            
+            }
+            
+            #red:hover {
+                background-color: rgb(229, 69, 69);
+                color: white;
+                box-shadow: 2px 2px 20px red;
+
+            }
+
+            #blue:hover {
+                background-color: rgb(43, 43, 255);
+                
+                color: white;
+                box-shadow: 2px 2px 20px blue;
+            }
+            
+            span {
+                font-size: 25px;
+                
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Current time is: <span>{{ time }}</span></h1>
+        <h1>Choose LED Color</h1>
+        <div>
+            <button id="red">Red</button>
+            <button id="blue">Blue</button>
+        </div>
+        <h1>PIR Sensor Data</h1>
+        <ul>
+            {% for timestamp, pir_data in data.items() %}
+                <p>Timestamp: {{ timestamp }}, PIR Data: {{ pir_data }}</p>
+            {% endfor %}
+        </ul>
+    </body>
+    </html>
